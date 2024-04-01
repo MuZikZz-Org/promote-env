@@ -32,7 +32,7 @@ jobs:
     deployProd:
         name: Deploy to PROD
         runs-on: ubuntu-latest
-        needs: deployDev
+        # needs: deployDev
         environment:
             name: "Production"
         steps:
