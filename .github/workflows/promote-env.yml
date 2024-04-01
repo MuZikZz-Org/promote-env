@@ -35,7 +35,10 @@ jobs:
         if: ${{ inputs.environment == 'Production' }}
         name: Deploy to PROD
         runs-on: ubuntu-latest
-        # needs: deployDev
+        inputs:
+            git_tag:
+              description: 'Git tag for my_job_with_input'
+              required: true
         environment:
             name: "Production"
         steps:
