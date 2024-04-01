@@ -1,9 +1,9 @@
-name: Build and deploy Angular app to an Azure Web App
+name: test promote env
 
 on:
   push:
     branches:
-      - master
+      - main
 
   workflow_dispatch:
     inputs:
