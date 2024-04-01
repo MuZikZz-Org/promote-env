@@ -11,6 +11,8 @@ on:
         description: 'Environment to run tests against'
         type: environment
         required: true
+      git_tag:
+        description: 'Git tag'
 jobs:
     build:
         name: Build
@@ -35,13 +37,9 @@ jobs:
         if: ${{ inputs.environment == 'Production' }}
         name: Deploy to PROD
         runs-on: ubuntu-latest
-        inputs:
-            git_tag:
-              description: 'Git tag for my_job_with_input'
-              required: true
         environment:
             name: "Production"
         steps:
             - name: Deploy to PROD
               run: |
-                echo "Deploy PROD"
+                echo "Deploy PROD \n App Version : ${{inputs.git_tag}}"
