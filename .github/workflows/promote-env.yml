@@ -20,6 +20,7 @@ jobs:
               run: |
                 echo "build"
     deployDev:
+        if: ${{ inputs.environment == 'Development' }}
         name: Deploy to Dev
         runs-on: ubuntu-latest
         needs: build
@@ -29,7 +30,9 @@ jobs:
             - name: Deploy to Dev
               run: |
                 echo "Deploy DEV"
+
     deployProd:
+        if: ${{ inputs.environment == 'Production' }}
         name: Deploy to PROD
         runs-on: ubuntu-latest
         # needs: deployDev
@@ -37,6 +40,5 @@ jobs:
             name: "Production"
         steps:
             - name: Deploy to PROD
-              if: ${{ inputs.environment == 'Production' }}
               run: |
                 echo "Deploy PROD"
