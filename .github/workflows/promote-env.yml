@@ -37,5 +37,6 @@ jobs:
             name: "Production"
         steps:
             - name: Deploy to PROD
+              if: ${{ inputs.environment == 'Production' }}
               run: |
                 echo "Deploy PROD"
